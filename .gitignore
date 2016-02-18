@@ -1,0 +1,4 @@
+*.sw[op]
+*.py[co]
+*.egg-info
+MANIFEST
