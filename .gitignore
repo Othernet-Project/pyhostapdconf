@@ -2,3 +2,6 @@
 *.py[co]
 *.egg-info
 MANIFEST
+/.tox
+/.cache
+/.ropeproject
