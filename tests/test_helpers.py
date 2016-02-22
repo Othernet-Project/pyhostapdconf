@@ -51,3 +51,12 @@ def test_set_channel_for_north_america():
     with pytest.raises(mod.ConfigurationError):
         mod.set_channel(hc, 0)
 
+
+def test_driver():
+    """ Can only set one of the two valid drivers """
+    hc = HostapdConf()
+    mod.set_driver(hc, mod.STANDARD)
+    mod.set_driver(hc, mod.REALTEK)
+    with pytest.raises(mod.ConfigurationError):
+        mod.set_driver(hc, 'bogus')
+

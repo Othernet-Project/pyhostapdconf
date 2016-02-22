@@ -9,10 +9,9 @@ file that comes with the source code, or http://www.gnu.org/licenses/gpl.txt.
 """
 
 
-DRIVERS = (
-    'nl80211',
-    'rt871xdrv',
-)
+STANDARD = 'nl80211'
+REALTEK = 'rt871xdrv'
+DRIVERS = (STANDARD, REALTEK)
 
 WPA1_ONLY = 1
 WPA2_ONLY = 2
@@ -96,3 +95,8 @@ def reveal_ssid(conf):
     """ Unhide the SSID """
     _safe_del(conf, 'ignore_broadcast_ssid')
 
+
+def set_driver(conf, driver):
+    if driver not in DRIVERS:
+        raise ConfigurationError('Invalid driver selection')
+    conf['driver'] = driver
