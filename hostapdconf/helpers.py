@@ -13,6 +13,7 @@ STANDARD = 'nl80211'
 REALTEK = 'rt871xdrv'
 DRIVERS = (STANDARD, REALTEK)
 
+WPA_NONE = 0
 WPA1_ONLY = 1
 WPA2_ONLY = 2
 WPA_BOTH = 3
@@ -43,18 +44,23 @@ def set_iface(conf, iface):
 
 def set_country(conf, code):
     """ Set country code on the specified configuration object. """
+    if not code:
+        _safe_del(conf, 'country_code')
+        return
     conf['country_code'] = code
 
 
 def set_channel(conf, channel):
     """ Set channel on the specified configuration object. """
+    if not channel:
+        conf['channel'] = 6
     if conf.get('country_code', '').upper() in ['US', 'CA']:
         max_ch = 11
     else:
         max_ch = 13
     if channel < 1 or channel > max_ch:
         raise ConfigurationError('Channel {} is out of range'.format(channel))
-    conf['channel'] = str(channel)
+    conf['channel'] = channel
 
 
 def enable_wpa(conf, passphrase, wpa_mode=WPA_BOTH):
