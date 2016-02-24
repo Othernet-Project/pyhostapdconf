@@ -76,11 +76,12 @@ def enable_wpa(conf, passphrase, wpa_mode=WPA_BOTH):
     conf['wpa_key_mgmt'] = 'WPA-PSK'
     conf['wpa_pairwise'] = 'CCMP TKIP'
     conf['rsn_pairwise'] = 'CCMP'
+    conf['ieee8021x'] = 0
 
 
 def disable_wpa(conf):
     for k in ['auth_algs', 'wpa', 'wpa_passphrase', 'wpa_key_mgmt',
-              'wpa_pairwise', 'rsn_pairwise']:
+              'wpa_pairwise', 'rsn_pairwise', 'ieee8021x']:
         _safe_del(conf, k)
 
 
