@@ -10,7 +10,7 @@ file that comes with the source code, or http://www.gnu.org/licenses/gpl.txt.
 
 
 STANDARD = 'nl80211'
-REALTEK = 'rt871xdrv'
+REALTEK = 'rtl871xdrv'
 DRIVERS = (STANDARD, REALTEK)
 
 WPA_NONE = 0
