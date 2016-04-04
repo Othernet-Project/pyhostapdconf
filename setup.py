@@ -13,13 +13,15 @@ VERSION = pkg.__version__
 
 setup(
     name='pyhostapdconf',
+    description='Library for working with hostapd configuation files',
     version=VERSION,
+    author='Outernet Inc',
+    author_email='apps@outernet.is',
     license='GPLv3',
+    url='https://github.com/Outernet-Project/confloader',
     packages=find_packages(),
-    include_package_data=True,
     long_description=read('README.rst'),
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
